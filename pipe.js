@@ -12,7 +12,7 @@ function Pipe(){
         if(bird.y < this.top || bird.y >height -this.bottom ){
             if(bird.x > this.x && bird.x <this.x +this.w){
                 this.hightlight = true;
-                score -= 50;
+                score = 0;
                 console.log(score);
                 return true;  
             }
