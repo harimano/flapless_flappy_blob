@@ -13,3 +13,12 @@ a{
 .pause{
     background-image: url(assets/pause.png);
 }
+
+h2{
+    text-align: center;
+    padding: 10px;
+    width: 380px;
+    border: 1px solid black;
+    font-family: 'Montserrat';
+    font-size: 22px;
+}
