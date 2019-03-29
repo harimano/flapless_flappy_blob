@@ -3,6 +3,7 @@ var bird;
 var pipes =[];
 var score = 0;
 var stop;
+var highscore= [];
 // let song;
 
 // function preload() {

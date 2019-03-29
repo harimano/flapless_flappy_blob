@@ -12,8 +12,12 @@ function Pipe(){
         if(bird.y < this.top || bird.y >height -this.bottom ){
             if(bird.x > this.x && bird.x <this.x +this.w){
                 this.hightlight = true;
+                highscore.push(score);
+                const scoreDiv2 = document.getElementById('highscore');
+                scoreDiv2.innerText = Math.max(...highscore); 
                 score = 0;
                 console.log(score);
+
                 return true;  
             }
         }
