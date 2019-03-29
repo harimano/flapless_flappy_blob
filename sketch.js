@@ -2,6 +2,7 @@
 var bird;
 var pipes =[];
 var score = 0;
+var stop;
 // let song;
 
 // function preload() {
@@ -22,33 +23,35 @@ function setup(){
     sound.play()
     bird = new Bird();
     pipes.push(new Pipe());
+    stop = false;
 }
 
 function draw(){
     background(0);
 
+    if(stop ==false){
 
-    for(var i = pipes.length-1; i>=0; i--){
-        pipes[i].show();
-        pipes[i].update();
+        for(var i = pipes.length-1; i>=0; i--){
+            pipes[i].show();
+            pipes[i].update();
 
-        if(pipes[i].hits(bird)){
-            console.log("HIT")
+            if(pipes[i].hits(bird)){
+                console.log("HIT")
+            }
+
+            if (pipes[i].offScreen()){
+                pipes.splice(i,1);
+            }
         }
 
-        if (pipes[i].offScreen()){
-            pipes.splice(i,1);
+        bird.update();
+        bird.show();
+
+        if( frameCount % 50 == 0){
+            pipes.push(new Pipe());
         }
+        
     }
-
-    bird.update();
-    bird.show();
-
-    if( frameCount % 50 == 0){
-        pipes.push(new Pipe());
-    }
-    
-    
 
 }
 
@@ -58,4 +61,14 @@ function keyPressed(){
          console.log("yeee");
         bird.up();
      }       
+}
+
+function pause(){
+    sound.pause();
+    console.log("paused");
+}
+
+function play(){
+    sound.play();
+    console.log("playing");
 }
